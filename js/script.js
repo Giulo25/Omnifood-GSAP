@@ -1,5 +1,8 @@
+// anno footer sempre aggiornato
 const annoEl = document.querySelector(".anno");
 annoEl.textContent = new Date().getFullYear();
+
+
 
 const headerEl = document.querySelector(".header");
 const btnMobile = document.querySelector(".btn-mobile-nav");
@@ -130,3 +133,10 @@ checkFlexGap();
   }
 }
 */
+
+
+
+
+/*  -----------------------------------------------------------------------------------------------*/
+ /* ! GSAP */
+/*--------------------------------------------------------------------------------------------------- */
