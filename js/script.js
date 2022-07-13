@@ -141,4 +141,12 @@ checkFlexGap();
  /* ! GSAP */
 /*--------------------------------------------------------------------------------------------------- */
 
-console.log('test branch');
+//hero section
+
+let tlHero = gsap.timeline();
+
+tlHero.from(".fade-in", {duration: 1, opacity: 0, y: 50, stagger: 0.5, ease: "power3.out", delay: 0.5})
+.from(".fade", {duration: 1, opacity:0, ease: "power3.out"})
+.from(".to-right", {duration: 1 , y: 50, scale: 0.5, stagger:0.2, opacity: 0,ease: "back"}, "<")
+.from(".hero-img", {duration: 2.5, scale: 0.5, opacity: 0}, "0.5")
+

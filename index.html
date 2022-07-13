@@ -50,12 +50,13 @@
     ></script>
 
     <!-- libreria per smooth scrolling su safari -->
-
     <script
       defer
       src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
     ></script>
-
+    <!-- gsap + scrolltrigger-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <script defer src="js/script.js"></script>
 
     <title>Omnifood &mdash; Never cook again!</title>
@@ -116,38 +117,38 @@
       <section class="section-hero">
         <div class="hero">
           <div class="hero-text-box">
-            <h1 class="heading-primary">
+            <h1 class="heading-primary fade-in">
               A healthy meal delivered to your door, every single day
             </h1>
 
-            <p class="hero-description">
+            <p class="hero-description fade-in">
               The smart 365-days-per-year food subscription that will make you
               eat healthy again. Tailored to your personal tastes and
               nutritional needs.
             </p>
 
-            <a href="#cta" class="btn btn--full margin-right-sm"
+            <a href="#cta" class="btn btn--full margin-right-sm fade-in"
               >Start eating well</a
             >
 
-            <a href="#how" class="btn btn--outline">Learn more &darr;</a>
+            <a href="#how" class="btn btn--outline fade-in">Learn more &darr;</a>
 
             <div class="delivered-meals">
               <div class="delivered-imgs">
-                <img src="img/customers/customer-1.jpg" alt="customer photo" />
+                <img src="img/customers/customer-1.jpg" class="to-right" alt="customer photo" />
 
-                <img src="img/customers/customer-2.jpg" alt="customer photo" />
+                <img src="img/customers/customer-2.jpg" class="to-right" alt="customer photo" />
 
-                <img src="img/customers/customer-3.jpg" alt="customer photo" />
+                <img src="img/customers/customer-3.jpg" class="to-right" alt="customer photo" />
 
-                <img src="img/customers/customer-4.jpg" alt="customer photo" />
+                <img src="img/customers/customer-4.jpg" class="to-right" alt="customer photo" />
 
-                <img src="img/customers/customer-5.jpg" alt="customer photo" />
+                <img src="img/customers/customer-5.jpg" class="to-right" alt="customer photo" />
 
-                <img src="img/customers/customer-6.jpg" alt="customer photo" />
+                <img src="img/customers/customer-6.jpg" class="to-right" alt="customer photo" />
               </div>
 
-              <p class="delivered-text">
+              <p class="delivered-text fade">
                 <span>250,000+</span> meals delivered last year!
               </p>
             </div>
