@@ -75,7 +75,7 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
+  // console.log(isSupported);
 
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
@@ -143,10 +143,46 @@ checkFlexGap();
 
 //hero section
 
+const steps = document.querySelectorAll(".step-text-box");
+
 let tlHero = gsap.timeline();
 
-tlHero.from(".fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagger: 0.5, ease: "power3.out"})
-.from(".fade", {duration: 1, opacity:0, ease: "power3.out"})
-.from(".to-right", {duration: 1 , y: 50, scale: 0.5, stagger:0.2, opacity: 0,ease: "back"}, "<")
-.from(".grow-img", {duration: 2.5, scale: 0.5, opacity: 0}, "0.5")
+tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagger: 0.3, ease: "power3.out"})
+.from(".hero-fade", {duration: 1, opacity:0, ease: "power3.out"})
+.from(".hero-to-right", {duration: 1 , y: 50, scale: 0.5, stagger:0.2, opacity: 0,ease: "back"}, "<")
+.from(".hero-grow-img", {duration: 2, scale: 0.5, opacity: 0}, "0.5")
 
+
+// how it works
+
+
+    ScrollTrigger.batch(".step-text-box", {
+      start: "top 80%",
+      //markers: {startColor: "black", endColor: "blue", fontSize: "18px", fontWeight: "bold", indent: 20},
+      onEnter: (elements, triggers) => {
+        gsap.to(elements, {opacity: 1, stagger: 0.15, y:0});
+        console.log(elements.length, "elements entered");
+    }
+  })
+
+  gsap.to(".slide-right", {
+  x: -200,
+  scrollTrigger: {
+    trigger: ".slide-right",
+    start: "top 80%",
+    end: "bottom center",
+    // markers: true,
+    scrub: true,
+  },
+});
+
+gsap.to(".slide-left", {
+  x: 200,
+  scrollTrigger: {
+    trigger: ".slide-left",
+    start: "top 80%",
+    end: "bottom center",
+    // markers: true,
+    scrub: true,
+  },
+});
