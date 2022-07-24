@@ -8,8 +8,11 @@
 
 
  /* how it works */
-.fade-in-step {opacity: 0; transform: translateY(50px);}
-.slide-right-step {opacity: 0; transform: translateX(100px);}
+.fade-in-step1,
+.fade-in-step2,
+.fade-in-step3 {opacity: 0; transform: translateY(50px);}
+.slide-right-step1,
+.slide-right-step2 {opacity: 0; transform: translateX(100px);}
 .slide-left-step {opacity: 0; transform: translateX(-100px);}
 
 
