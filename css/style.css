@@ -7,6 +7,10 @@
 .slide-left {position: relative;left: -200px;}
 
 
+ /* how it works */
+.fade-in-step {opacity: 0; transform: translateY(50px);}
+.slide-right-step {opacity: 0; transform: translateX(100px);}
+.slide-left-step {opacity: 0; transform: translateX(-100px);}
 
 
 
