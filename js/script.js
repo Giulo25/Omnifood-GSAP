@@ -154,26 +154,76 @@ tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagge
 // how it works
 
 
-    ScrollTrigger.batch(".fade-in-step", {
-      start: "top center",
-      markers: true,
-      onEnter: (elements, triggers) => {
-        gsap.to(elements, {opacity: 1, y: 0});
-      }
-    })
-    ScrollTrigger.batch(".slide-right-step", {
-      start: "top center",
-      markers: true,
-      onEnter: (elements, triggers) => {
-        gsap.to(elements, {opacity: 1, x: 0});
-      }
-  })
-    ScrollTrigger.batch(".slide-left-step", {
-      start: "top center",
-      markers: true,
-      onEnter: (elements, triggers) => {
-        gsap.to(elements, {opacity: 1, x: 0});
-      }
-  })
+// test con timeline
+
+// step 1
+let tlStep1 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".step1",
+    start: "top center",
+    markers: true,
+  }
+});
+
+tlStep1.to(".fade-in-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
+.to(".slide-right-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
+
+
+
+// step 2
+let tlStep2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".step2",
+    start: "top center",
+    markers: true,
+  }
+});
+
+tlStep2.to(".fade-in-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
+.to(".slide-left-step", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
+
+
+
+
+// step 3
+let tlStep3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".step3",
+    start: "top center",
+    markers: true,
+  }
+});
+
+tlStep3.to(".fade-in-step3", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
+.to(".slide-right-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
+
+
+
+
+
+
+// test con batch
+
+  //   ScrollTrigger.batch(".fade-in-step", {
+  //     start: "top center",
+  //     markers: true,
+  //     onEnter: (elements, triggers) => {
+  //       gsap.to(elements, {opacity: 1, y: 0});
+  //     }
+  //   })
+  //   ScrollTrigger.batch(".slide-right-step", {
+  //     start: "top center",
+  //     markers: true,
+  //     onEnter: (elements, triggers) => {
+  //       gsap.to(elements, {opacity: 1, x: 0});
+  //     }
+  // })
+  //   ScrollTrigger.batch(".slide-left-step", {
+  //     start: "top center",
+  //     markers: true,
+  //     onEnter: (elements, triggers) => {
+  //       gsap.to(elements, {opacity: 1, x: 0});
+  //     }
+  // })
 
 
