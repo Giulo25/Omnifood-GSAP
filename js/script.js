@@ -143,8 +143,6 @@ checkFlexGap();
 
 //hero section
 
-const steps = document.querySelectorAll(".step-text-box");
-
 let tlHero = gsap.timeline();
 
 tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagger: 0.3, ease: "power3.out"})
@@ -156,33 +154,26 @@ tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagge
 // how it works
 
 
-    ScrollTrigger.batch(".step-text-box", {
-      start: "top 80%",
-      //markers: {startColor: "black", endColor: "blue", fontSize: "18px", fontWeight: "bold", indent: 20},
+    ScrollTrigger.batch(".fade-in-step", {
+      start: "top center",
+      markers: true,
       onEnter: (elements, triggers) => {
-        gsap.to(elements, {opacity: 1, stagger: 0.15, y:0});
-        console.log(elements.length, "elements entered");
-    }
+        gsap.to(elements, {opacity: 1, y: 0});
+      }
+    })
+    ScrollTrigger.batch(".slide-right-step", {
+      start: "top center",
+      markers: true,
+      onEnter: (elements, triggers) => {
+        gsap.to(elements, {opacity: 1, x: 0});
+      }
+  })
+    ScrollTrigger.batch(".slide-left-step", {
+      start: "top center",
+      markers: true,
+      onEnter: (elements, triggers) => {
+        gsap.to(elements, {opacity: 1, x: 0});
+      }
   })
 
-  gsap.to(".slide-right", {
-  x: -200,
-  scrollTrigger: {
-    trigger: ".slide-right",
-    start: "top 80%",
-    end: "bottom center",
-    // markers: true,
-    scrub: true,
-  },
-});
 
-gsap.to(".slide-left", {
-  x: 200,
-  scrollTrigger: {
-    trigger: ".slide-left",
-    start: "top 80%",
-    end: "bottom center",
-    // markers: true,
-    scrub: true,
-  },
-});
