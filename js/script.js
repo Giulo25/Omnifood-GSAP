@@ -141,27 +141,49 @@ checkFlexGap();
  /* ! GSAP */
 /*--------------------------------------------------------------------------------------------------- */
 
+
+
+
+// general
+
+
+ScrollTrigger.batch(".fade-in", {
+  start: "top 80%",
+  // markers: true,
+  onEnter: batch => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.15,
+      duration: 1,
+    });
+  },
+});
+
+
+
+
+
+
 //hero section
 
 let tlHero = gsap.timeline();
 
 tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagger: 0.3, ease: "power3.out"})
 .from(".hero-fade", {duration: 1, opacity:0, ease: "power3.out"})
-.from(".hero-to-right", {duration: 1 , y: 50, scale: 0.5, stagger:0.2, opacity: 0,ease: "back"}, "<")
+.from(".delivered-imgs > img", {duration: 1 , y: 50, scale: 0.5, stagger:0.2, opacity: 0,ease: "back"}, "<")
 .from(".hero-grow-img", {duration: 2, scale: 0.5, opacity: 0}, "0.5")
 
 
 // how it works
 
 
-// test con timeline
-
 // step 1
 let tlStep1 = gsap.timeline({
   scrollTrigger: {
     trigger: ".step1",
-    start: "top center",
-    markers: true,
+    start: "top 60%",
+    // markers: true,
   }
 });
 
@@ -174,8 +196,8 @@ tlStep1.to(".fade-in-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",
 let tlStep2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".step2",
-    start: "top center",
-    markers: true,
+    start: "top 60%",
+    // markers: true,
   }
 });
 
@@ -189,8 +211,8 @@ tlStep2.to(".fade-in-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",
 let tlStep3 = gsap.timeline({
   scrollTrigger: {
     trigger: ".step3",
-    start: "top center",
-    markers: true,
+    start: "top 60%",
+    // markers: true,
   }
 });
 
@@ -199,31 +221,37 @@ tlStep3.to(".fade-in-step3", {opacity: 1, x: 0, duration: 2, ease: "power3.out",
 
 
 
+//meals
+
+gsap.from(".list-item > span, .list-icon", {
+  x: 80,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.08,
+  scrollTrigger: {
+    trigger: ".list",
+    start: "top center",
+    markers: true,
+  } 
+})
+
+//testimonials
+
+ScrollTrigger.batch(".gallery-item > img", {
+  start: "top 80%",
+  // markers: true,
+  onEnter: batch => gsap.to(batch, {opacity: 1, stagger: 0.1}),
+  // onEnterBack: batch => gsap.to(batch, {opacity: 1, stagger: 0.1}),
+});
 
 
+// ScrollTrigger.batch(".box", {
+//   onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
+//   onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
+//   onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true}),
+//   onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 100, overwrite: true})
+// });
 
-// test con batch
 
-  //   ScrollTrigger.batch(".fade-in-step", {
-  //     start: "top center",
-  //     markers: true,
-  //     onEnter: (elements, triggers) => {
-  //       gsap.to(elements, {opacity: 1, y: 0});
-  //     }
-  //   })
-  //   ScrollTrigger.batch(".slide-right-step", {
-  //     start: "top center",
-  //     markers: true,
-  //     onEnter: (elements, triggers) => {
-  //       gsap.to(elements, {opacity: 1, x: 0});
-  //     }
-  // })
-  //   ScrollTrigger.batch(".slide-left-step", {
-  //     start: "top center",
-  //     markers: true,
-  //     onEnter: (elements, triggers) => {
-  //       gsap.to(elements, {opacity: 1, x: 0});
-  //     }
-  // })
 
 
