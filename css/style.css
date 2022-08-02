@@ -3,8 +3,10 @@
 /* ! Animazioni */
 /* -------------------------------------------------------------------------------- */
 
-.slide-right {position: relative;right: -200px;}
-.slide-left {position: relative;left: -200px;}
+.fade-in {opacity: 0; transform: translateY(50px);}
+
+
+
 
 
  /* how it works */
@@ -14,6 +16,7 @@
 .slide-right-step1,
 .slide-right-step2 {opacity: 0; transform: translateX(100px);}
 .slide-left-step {opacity: 0; transform: translateX(-100px);}
+
 
 
 
@@ -424,6 +427,7 @@ gli altri link
   display: block;
   width: 100%;
   transition: all 0.3s;
+  opacity: 0;
 }
 
 .gallery-item img:hover {
