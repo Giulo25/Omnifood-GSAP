@@ -81,61 +81,6 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
-// https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
-
-/*
-.no-flexbox-gap .main-nav-list li:not(:last-child) {
-  margin-right: 4.8rem;
-}
-
-.no-flexbox-gap .list-item:not(:last-child) {
-  margin-bottom: 1.6rem;
-}
-
-.no-flexbox-gap .list-icon:not(:last-child) {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .delivered-faces {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .meal-attribute:not(:last-child) {
-  margin-bottom: 2rem;
-}
-
-.no-flexbox-gap .meal-icon {
-  margin-right: 1.6rem;
-}
-
-.no-flexbox-gap .footer-row div:not(:last-child) {
-  margin-right: 6.4rem;
-}
-
-.no-flexbox-gap .social-links li:not(:last-child) {
-  margin-right: 2.4rem;
-}
-
-.no-flexbox-gap .footer-nav li:not(:last-child) {
-  margin-bottom: 2.4rem;
-}
-
-@media (max-width: 75em) {
-  .no-flexbox-gap .main-nav-list li:not(:last-child) {
-    margin-right: 3.2rem;
-  }
-}
-
-@media (max-width: 59em) {
-  .no-flexbox-gap .main-nav-list li:not(:last-child) {
-    margin-right: 0;
-    margin-bottom: 4.8rem;
-  }
-}
-*/
-
-
-
 
 /*  -----------------------------------------------------------------------------------------------*/
  /* ! GSAP */
@@ -147,9 +92,22 @@ checkFlexGap();
 // general
 
 
+//test per rendere fade in ripetibile al onEnterBack 
+// let fadeIn = gsap.to(".fade-in", {opacity: 1,y: 0,stagger: 0.15,duration: 1,});
+
+// ScrollTrigger.batch(".fade-in", {
+//   start: "top 80%",
+//   end: "top 100%",
+//   markers: true,
+//   onEnter: () => { fadeIn.play()},
+//   onEnterBack: () => { fadeIn.reset()}
+//   },
+// );
+
+
+// back-up fade-in
 ScrollTrigger.batch(".fade-in", {
   start: "top 80%",
-  // markers: true,
   onEnter: batch => {
     gsap.to(batch, {
       opacity: 1,
@@ -175,8 +133,10 @@ tlHero.from(".hero-fade-in", {delay: 0.5, duration: 1, opacity: 0, y: 50, stagge
 .from(".hero-grow-img", {duration: 2, scale: 0.5, opacity: 0}, "0.5")
 
 
-// how it works
 
+
+
+// how it works
 
 // step 1
 let tlStep1 = gsap.timeline({
@@ -188,8 +148,7 @@ let tlStep1 = gsap.timeline({
 });
 
 tlStep1.to(".fade-in-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
-.to(".slide-right-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
-
+.to(".slide-right-step1", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.2")
 
 
 // step 2
@@ -202,9 +161,7 @@ let tlStep2 = gsap.timeline({
 });
 
 tlStep2.to(".fade-in-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
-.to(".slide-left-step", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
-
-
+.to(".slide-left-step", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.2")
 
 
 // step 3
@@ -217,23 +174,30 @@ let tlStep3 = gsap.timeline({
 });
 
 tlStep3.to(".fade-in-step3", {opacity: 1, x: 0, duration: 2, ease: "power3.out",})
-.to(".slide-right-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.5")
+.to(".slide-right-step2", {opacity: 1, x: 0, duration: 2, ease: "power3.out",}, "0.2")
 
 
 
 //meals
 
+// da rivedere triggera anche schede prezzo
 gsap.from(".list-item > span, .list-icon", {
   x: 80,
   opacity: 0,
   duration: 1,
-  stagger: 0.08,
+  stagger: 0.1,
   scrollTrigger: {
     trigger: ".list",
-    start: "top center",
-    markers: true,
+    start: "top 70%",
+    toggleActions: "play none none reset",
+    // markers: true,
   } 
 })
+
+
+
+
+
 
 //testimonials
 
@@ -241,17 +205,28 @@ ScrollTrigger.batch(".gallery-item > img", {
   start: "top 80%",
   // markers: true,
   onEnter: batch => gsap.to(batch, {opacity: 1, stagger: 0.1}),
-  // onEnterBack: batch => gsap.to(batch, {opacity: 1, stagger: 0.1}),
 });
 
 
-// ScrollTrigger.batch(".box", {
-//   onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
-//   onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
-//   onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true}),
-//   onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 100, overwrite: true})
-// });
 
 
+
+// price
+
+let features = gsap.timeline({
+    scrollTrigger: {
+    trigger: ".feature",
+    start: "top 75%",
+    toggleActions: "play none none reset",
+    // markers: true,
+    // scrub: true,
+  },
+})
+
+
+features
+.from(".feature-icon", {duration: 1.5, stagger: 0.2, xPercent: 200, opacity: 0, ease: "power3.out",})
+.from(".feature-title", {duration: 1.5, stagger: 0.2, y: 80, opacity: 0, ease: "power3.out"}, 0)
+.from(".feature-text", {duration: 1.5, stagger: 0.2, y: 150, opacity: 0, ease: "power3.out"}, 0)
 
 
