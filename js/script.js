@@ -196,7 +196,7 @@ gsap.from(".list-item > span, .list-icon", {
 		trigger: ".list",
 		start: "top 70%",
 		toggleActions: "play none none reset",
-		markers: true,
+		// markers: true,
 	},
 });
 
