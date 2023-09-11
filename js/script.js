@@ -215,8 +215,8 @@ let features = gsap.timeline({
 		trigger: ".feature",
 		start: "top 75%",
 		toggleActions: "play none none reset",
-		 markers: true,
-		 scrub: true,
+		//markers: true,
+		//scrub: true,
 	},
 });
 
